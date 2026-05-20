@@ -1,0 +1,39 @@
+
+
+.navbar{
+    width: 100%;
+    height: 80px;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: Arial;
+}
+
+.navbar a:hover{
+    color: cyan;
+}
+
+
+
+
+#bg-video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    object-fit: cover;
+
+    z-index: -1;
+}
