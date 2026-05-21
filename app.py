@@ -1,5 +1,5 @@
 # Importamos Flask y una funcion que permite mostrar un HTML.
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 # Creamos la aplicacion principal.
@@ -59,6 +59,26 @@ def recursos():
     ]
 
     return render_template("recursos.html", recursos=recursos_clase)
+
+
+
+@app.route("/inscripcion", methods=["GET", "POST"])
+def inscripcion():
+    mensaje = None
+    
+    if request.method == "POST":
+        # El usuario envio el formulario
+        nombre = request.form.get("nombre")
+        email = request.form.get("email")
+        programa = request.form.get("programa")
+        
+        # Validacion basica
+        if nombre and email and programa:
+            mensaje = f"Bienvenido {nombre}! Te hemos registrado."
+        else:
+            mensaje = "Por favor completa todos los campos."
+    
+    return render_template("inscripcion.html", mensaje=mensaje)
   
 
 
