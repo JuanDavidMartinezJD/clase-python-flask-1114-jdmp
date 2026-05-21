@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='recursos.css') }}">
+</head>
+<body>
+    
+<nav class="navbar">
+        <a href="/acerca">
+        acerca
+    </a>
+    <a href="/">
+        Inicio
+    </a>
+
+    <a href="/contacto">
+        Contacto
+    </a>
+    </nav>
+
+
+
+
+<h1>RECURSOS</h1>
+
+ <h1>Recursos de Clase</h1>
+
+    {% for recurso in recursos %}
+  <li>{{ recurso }}</li>
+{% endfor %}
+</body>
+</html>

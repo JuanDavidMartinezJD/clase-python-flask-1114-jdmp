@@ -14,7 +14,7 @@ def inicio():
     # `render_template` busca archivos dentro de la carpeta `templates`.
     return render_template("index.html")
 
-
+#MIS RUTAS POR JUAN DAVID MARTINEZ PERDOMO
 
 @app.route("/ruta1")
 def route1():
@@ -46,6 +46,20 @@ def acerca():
 def contacto():
     return render_template("contacto.html")
 
+
+
+@app.route("/recursos")
+def recursos():
+
+    recursos_clase = [
+        "Entorno virtual",
+        "Rutas en Flask",
+        "Plantillas HTML",
+        "Variables con Jinja"
+    ]
+
+    return render_template("recursos.html", recursos=recursos_clase)
+  
 
 
 # Este bloque se ejecuta solo si corremos `python app.py` desde la terminal.
