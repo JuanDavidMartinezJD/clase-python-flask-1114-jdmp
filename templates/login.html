@@ -4,27 +4,60 @@
     <meta charset="UTF-8">
     <title>Login - Portal Clase 1114</title>
 </head>
-<body>
-    <h1>Login Portal Clase 1114</h1>
-    
-    {% if mensaje %}
-    <p style="color: red;">{{ mensaje }}</p>
-    {% endif %}
+{% extends "base.html" %}
 
-    <form method="POST">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
-        <br><br>
+{% block title %}Login - Clase 1114{% endblock %}
 
-        <label>Contraseña:</label>
-        <input type="password" name="contraseña" required>
-        <br><br>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
 
-        <button type="submit">Login</button>
-    </form>
+        <h1 class="mb-4">Login Portal Clase 1114</h1>
 
-    <hr>
-    <p>Datos de prueba:</p>
-    <p><strong>Profesor:</strong> usuario=henry, contraseña=password123</p>
+        {% if mensaje %}
+        <div class="alert alert-danger">
+            {{ mensaje }}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <div class="mb-3">
+                <label for="usuario" class="form-label">Usuario:</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="usuario"
+                    id="usuario"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña:</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    name="contraseña"
+                    id="contraseña"
+                    required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Iniciar sesión
+            </button>
+
+        </form>
+
+        <hr>
+
+        <div class="alert alert-info mt-3">
+            <strong>Datos de prueba:</strong><br>
+            Profesor: usuario = henry<br>
+            Contraseña = password123
+        </div>
+
+    </div>
+</div>
+{% endblock %}
 </body>
 </html>

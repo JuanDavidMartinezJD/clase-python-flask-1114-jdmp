@@ -18,31 +18,44 @@
 
     <h1>Inscripcion a la Clase</h1>
 
-    <!-- Mostrar mensaje de exito o error -->
-    {% if mensaje %}
-    <p style="color: green; font-weight: bold;">{{ mensaje }}</p>
-    {% endif %}
+    {% extends "base.html" %}
 
-    <!-- El formulario -->
-    <form method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" required>
-        <br><br>
+{% block title %}Inscripcion - Clase 1114{% endblock %}
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br><br>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1 class="mb-4">Inscripcion a la Clase</h1>
 
-        <label for="programa">Programa:</label>
-        <select name="programa" id="programa" required>
-            <option value="">-- Selecciona --</option>
-            <option value="Sistemas">Sistemas</option>
-            <option value="Ingenierias">Ingenierias</option>
-            <option value="Otro">Otro</option>
-        </select>
-        <br><br>
+        {% if mensaje %}
+        <div class="alert alert-success">{{ mensaje }}</div>
+        {% endif %}
 
-        <button type="submit">Inscribirse</button>
-    </form>
+        <form method="POST" class="needs-validation">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="programa" class="form-label">Programa:</label>
+                <select name="programa" class="form-select" id="programa" required>
+                    <option value="">-- Selecciona --</option>
+                    <option value="Sistemas">Sistemas</option>
+                    <option value="Ingenierias">Ingenierias</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Inscribirse</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
 </body>
 </html>

@@ -11,12 +11,39 @@
     <nav>
         <ul>
             <li><a href="/">Inicio</a></li>
-            <li><a href="/tareas">Ver Tareas</a></li>
+            <li><a href="/mis-tareas">Ver Tareas</a></li>
             <li><a href="/logout">Logout</a></li>
         </ul>
     </nav>
 
     <h2>Tus Tareas</h2>
     <p>Aqui veras las tareas que debes entregar.</p>
+
+    <h2>Tus Tareas</h2>
+
+{% if tareas %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Tarea</th>
+            <th>Entrega</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.fecha_entrega }}</td>
+            <td>{{ tarea.descripcion }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No hay tareas asignadas.</p>
+{% endif %}
+
+
 </body>
 </html>

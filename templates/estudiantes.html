@@ -5,43 +5,71 @@
     <title>Estudiantes - Portal Clase 1114</title>
 </head>
 <body>
-    <!-- MENU -->
-    <nav>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/informacion">Informacion</a></li>
-            <li><a href="/recursos">Recursos</a></li>
-            <li><a href="/tareas">Tareas</a></li>
-            <li><a href="/inscripcion">Inscripcion</a></li>
-            <li><a href="/estudiantes">Estudiantes</a></li>
-        </ul>
-    </nav>
+{% extends "base.html" %}
 
-    <h1>Estudiantes Inscritos ({{ estudiantes|length }})</h1>
+{% block title %}Estudiantes - Clase 1114{% endblock %}
 
-    {% if estudiantes %}
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Programa</th>
-                <th>Fecha Inscripcion</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for estudiante in estudiantes %}
-            <tr>
-                <td>{{ estudiante.nombre }}</td>
-                <td>{{ estudiante.email }}</td>
-                <td>{{ estudiante.programa }}</td>
-                <td>{{ estudiante.fecha_inscripcion.strftime('%d/%m/%Y %H:%M') }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No hay estudiantes inscritos aun.</p>
-    {% endif %}
+{% block content %}
+
+<nav class="mb-4">
+    <div class="d-flex flex-wrap gap-2">
+        <a href="/" class="btn btn-secondary">Inicio</a>
+        <a href="/informacion" class="btn btn-primary">Información</a>
+        <a href="/recursos" class="btn btn-primary">Recursos</a>
+        <a href="/mis-tareas" class="btn btn-primary">Tareas</a>
+        <a href="/inscripcion" class="btn btn-success">Inscripción</a>
+        <a href="/estudiantes" class="btn btn-dark">Estudiantes</a>
+    </div>
+</nav>
+
+<h1 class="mb-4">
+    Estudiantes Inscritos
+    <span class="badge bg-primary">{{ estudiantes|length }}</span>
+</h1>
+
+{% if estudiantes %}
+
+<div class="card">
+    <div class="card-header">
+        Lista de estudiantes registrados
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Programa</th>
+                    <th>Fecha Inscripción</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.email }}</td>
+                    <td>{{ estudiante.programa }}</td>
+                    <td>{{ estudiante.fecha_inscripcion.strftime('%d/%m/%Y %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+{% else %}
+
+<div class="alert alert-warning">
+    No hay estudiantes inscritos aún.
+</div>
+
+{% endif %}
+
+{% endblock %}
 </body>
 </html>

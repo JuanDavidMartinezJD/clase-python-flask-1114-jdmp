@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <title>Panel Profesor</title>
 </head>
-<body>
-    <h1>Panel del Profesor</h1>
-    <p>Bienvenido, {{ usuario }}</p>
+{% extends "base.html" %}
 
-    <nav>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/estudiantes">Ver Estudiantes</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </nav>
+{% block title %}Panel Profesor - Clase 1114{% endblock %}
 
-    <h2>Acciones del Profesor</h2>
-    <ul>
-        <li>Crear tareas</li>
-        <li>Ver estudiantes inscritos</li>
-        <li>Poner calificaciones</li>
-    </ul>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <h1 class="mb-3">Panel del Profesor</h1>
+
+        <div class="alert alert-success">
+            Bienvenido, <strong>{{ usuario }}</strong>
+        </div>
+
+        <nav class="mb-4">
+            <div class="d-flex gap-2">
+                <a href="/" class="btn btn-secondary">Inicio</a>
+                <a href="/estudiantes" class="btn btn-primary">Ver Estudiantes</a>
+                <a href="/logout" class="btn btn-danger">Cerrar Sesión</a>
+            </div>
+        </nav>
+
+        <div class="card">
+            <div class="card-header">
+                Acciones del Profesor
+            </div>
+
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">Crear tareas</li>
+                    <li class="list-group-item">Ver estudiantes inscritos</li>
+                    <li class="list-group-item">Poner calificaciones</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+    
 </body>
 </html>

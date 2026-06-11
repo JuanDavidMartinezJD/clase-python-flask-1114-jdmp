@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Tareas</title>
+</head>
+<body>
+    <h1>Mis Tareas</h1>
+
+    <a href="/crear-tarea"><button>Nueva Tarea</button></a>
+
+   {% extends "base.html" %}
+
+{% block title %}Tareas - Clase 1114{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Tareas Entregables</h1>
+
+{% if tareas %}
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Numero</th>
+            <th>Titulo</th>
+            <th>Fecha entrega</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.numero }}</td>
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.fecha }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="alert alert-info">No hay tareas aun.</p>
+{% endif %}
+{% endblock %}
+</body>
+</html>
